@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Square from './Square';
 
-function Board() {
+function Board(props) {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [gameOver, setGameOver] = useState(false);
@@ -25,7 +25,7 @@ function Board() {
   }
 
   function renderSquare(i) {
-    return <Square value={squares[i]} onClick={() => handleClick(i)} />;
+    return <Square value={squares[i]} onClick={() => handleClick(i)} isLightMode={props.isLightMode}/>;
   }
 
   function calculateWinner(squares) {
@@ -65,24 +65,24 @@ function Board() {
   }
 
   return (
-    <div className='cont'>
-      <div className="status">{status}</div>
-      <div className="board-row">
+    <div className={`cont${props.isLightMode ? 'light-mode' : ''}`}>
+      <div className={`status${props.isLightMode ? 'light-mode' : ''}`}>{status}</div>
+      <div className={`board-row${props.isLightMode ? 'light-mode' : ''}`}>
         {renderSquare(0)}
         {renderSquare(1)}
         {renderSquare(2)}
       </div>
-      <div className="board-row">
+      <div className={`board-row${props.isLightMode ? 'light-mode' : ''}`}>
         {renderSquare(3)}
         {renderSquare(4)}
         {renderSquare(5)}
       </div>
-      <div className="board-row">
+      <div className={`board-row${props.isLightMode ? 'light-mode' : ''}`}>
         {renderSquare(6)}
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
-      <button className="restart-button" onClick={handleRestart}>
+      <button className={`restart-button${props.isLightMode ? 'light-mode' : ''}`} onClick={handleRestart}>
         Restart game
       </button>
     </div>

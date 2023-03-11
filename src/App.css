@@ -44,6 +44,7 @@
   align-items: center;
   height: 100vh;
   background-color: #1c1c1c;
+  transition: background-color 1s ease;
 }
 
 .game-board {
@@ -58,6 +59,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition: background-color 1s ease;
 }
 
 .board-row {
@@ -138,3 +140,37 @@ h1 {
   }
 }
 
+.mode-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  color: #fff;
+  background-color: #333;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mode-button.light {
+  background-color: #fff;
+  color: #333;
+  background-image: url('./brightness-high-fill.svg');
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.mode-button.dark {
+  background-image: url('./moon-fill.svg');
+}
+
+.mode-button.dark:hover{
+  filter:  brightness(0.8) hue-rotate(20deg);
+  transition: all 0.9s ease;
+}
+.mode-button.light:hover{
+  filter:  brightness(0.8) hue-rotate(20deg);
+  transition: all 0.9s ease;
+}
