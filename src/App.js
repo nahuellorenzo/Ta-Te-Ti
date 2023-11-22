@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className={isLightMode ? "gamelight-mode" : "game"}>
-      <h1 className={isLightMode ? "h1light-mode" : ""}>Ta Te Ti</h1>
+      <h1 className={isLightMode ? "h1light-mode" : ""}>TaTeTi</h1>
       <div className={isLightMode ? "game-boardlight-mode" : "game-board"}>
         <Board isLightMode={isLightMode} />
       </div>
